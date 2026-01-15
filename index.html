@@ -1,43 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Create Account</title>
-</head>
-<body>
-
-<h2>Create Username and Password</h2>
-
-<form onsubmit="createAccount(); return false;">
-    <label>Username:</label><br>
-    <input type="text" id="username" required><br><br>
-
-    <label>Password:</label><br>
-    <input type="password" id="password" required><br><br>
-
-    <button type="submit">Create Account</button>
-</form>
-
-<p id="message"></p>
-
-<script>
-function createAccount() {
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-
-    if (password.length < 6) {
-        document.getElementById("message").innerText =
-            "Password must be at least 6 characters";
-        return;
-    }
-
-    // Store in browser (NOT SAFE for real use)
-    localStorage.setItem("username", username);
-    localStorage.setItem("password", password);
-
-    document.getElementById("message").innerText =
-        "Account created successfully!";
-}
-</script>
-
-</body>
+<Head>
+  <title>Losh</title>
+</Head>
+<Body>
+  <Nav>Home</Nav>
+  <section>Invoices</section>
+</Body>
 </html>
