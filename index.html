@@ -3,132 +3,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Premium 3D Product Catalog</title>
+  <title>Calculators World | Best Product Catalog</title>
   <style>
     /* 1. STYLISH DESIGN (CSS) */
     :root {
-      --primary-color: #2575fc;
-      --accent-color: #ff4757;
-      --bg-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      --primary-color: #2c3e50;
+      --accent-color: #27ae60;
+      --highlight: #f39c12;
+      --bg-color: #ecf0f1;
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f7f6;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
       margin: 0;
-      padding: 40px 20px;
+      padding: 50px 20px;
       text-align: center;
     }
 
     h1 {
-      color: #333;
-      margin-bottom: 40px;
-      font-size: 2.5rem;
+      color: var(--primary-color);
+      font-size: 3rem;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     .card-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 30px;
+      gap: 35px;
     }
 
     .product-card {
-      background: white;
-      border-radius: 20px;
-      width: 300px;
-      padding: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      background: #ffffff;
+      border-radius: 25px;
+      width: 320px;
+      padding: 25px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      border: 1px solid #ddd;
     }
 
     .product-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      transform: scale(1.03);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.2);
     }
 
     .product-card img {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
-      border-radius: 15px;
-      margin-bottom: 15px;
-    }
-
-    .product-card h3 {
-      margin: 10px 0;
-      color: #2d3436;
-    }
-
-    /* Description & Calculator Area */
-    .product-details {
-      text-align: left;
-      background: #f9f9f9;
-      padding: 15px;
-      border-radius: 12px;
-      border-left: 4px solid var(--primary-color);
+      border-radius: 18px;
       margin-bottom: 20px;
     }
 
+    .product-card h3 {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin: 10px 0;
+    }
+
+    /* Description & Stylish Calculator Section */
+    .product-details {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 15px;
+      border-top: 4px solid var(--highlight);
+      text-align: left;
+      margin-bottom: 25px;
+    }
+
     .description-text {
-      font-size: 0.85rem;
-      color: #636e72;
-      margin-bottom: 12px;
-      line-height: 1.4;
+      font-size: 0.9rem;
+      color: #7f8c8d;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .best-calcy-tag {
+      display: inline-block;
+      background: #e67e22;
+      color: white;
+      padding: 3px 10px;
+      border-radius: 5px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      margin-bottom: 15px;
     }
 
     .calc-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid #eee;
+      margin-top: 5px;
     }
 
     .calc-row label {
-      font-size: 0.9rem;
-      font-weight: bold;
+      font-weight: 700;
+      color: #34495e;
     }
 
     .calc-row input {
-      width: 50px;
-      padding: 5px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
+      width: 60px;
+      padding: 8px;
+      border-radius: 8px;
+      border: 2px solid #ddd;
+      font-weight: bold;
       text-align: center;
+      outline: none;
+    }
+
+    .calc-row input:focus {
+      border-color: var(--highlight);
     }
 
     .total-display {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: #2d3436;
-      margin-top: 10px;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--primary-color);
       display: block;
+      margin-top: 15px;
+      text-align: right;
     }
 
     .total-display span {
       color: var(--accent-color);
     }
 
-    /* Button Style */
+    /* Buy Button Style */
     .buy-btn {
-      background: var(--bg-gradient);
+      background-color: var(--primary-color);
       color: white;
       border: none;
-      padding: 12px 25px;
-      border-radius: 10px;
-      font-weight: bold;
+      padding: 15px 30px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
       cursor: pointer;
       width: 100%;
-      transition: opacity 0.3s;
+      transition: background 0.3s;
     }
 
     .buy-btn:hover {
-      opacity: 0.9;
+      background-color: var(--accent-color);
     }
 
     a { text-decoration: none; }
@@ -136,7 +156,7 @@
 </head>
 <body>
 
-  <h1>Our 2026 Collection</h1>
+  <h1>Calculators World</h1>
 
   <div class="card-container">
 
@@ -145,7 +165,8 @@
       <h3>Product One</h3>
       
       <div class="product-details">
-        <p class="description-text">High-grade polymer finish. Water-resistant and 3D textured for a premium grip.</p>
+        <span class="best-calcy-tag">Best calcy of the world</span>
+        <p class="description-text">Precision engineering for professionals. Experience seamless calculations with a 3D interface.</p>
         
         <div class="calc-row">
           <label>Quantity:</label>
@@ -163,7 +184,8 @@
       <h3>Product Two</h3>
       
       <div class="product-details">
-        <p class="description-text">Lightweight ergonomic design. Ideal for professional environments and daily use.</p>
+        <span class="best-calcy-tag">Best calcy of the world</span>
+        <p class="description-text">Minimalist design for the modern student. Lightweight and solar-powered for efficiency.</p>
         
         <div class="calc-row">
           <label>Quantity:</label>
@@ -181,7 +203,8 @@
       <h3>Product Three</h3>
       
       <div class="product-details">
-        <p class="description-text">Eco-friendly materials with a minimalist aesthetic. Compact and highly durable.</p>
+        <span class="best-calcy-tag">Best calcy of the world</span>
+        <p class="description-text">Ultra-fast processing for complex scientific equations. Built to last a lifetime.</p>
         
         <div class="calc-row">
           <label>Quantity:</label>
@@ -203,12 +226,12 @@
       
       let qty = parseInt(qtyInput.value);
 
-      // Ensure quantity doesn't go below 1
+      // Simple logic to keep numbers clean
       if (isNaN(qty) || qty < 1) {
         totalSpan.innerText = "0";
       } else {
         const total = qty * unitPrice;
-        // toLocaleString adds the commas (e.g., 1,000)
+        // Standard Indian Number format (₹2,999)
         totalSpan.innerText = total.toLocaleString('en-IN');
       }
     }
