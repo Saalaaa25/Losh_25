@@ -3,56 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout Page</title>
+    <title>Product Catalog</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
-        .container { max-width: 500px; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin: auto; }
-        h2 { text-align: center; color: #333; }
-        label { display: block; margin-top: 15px; font-weight: bold; color: #555; }
-        input, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
-        button { width: 100%; background-color: #28a745; color: white; border: none; padding: 15px; margin-top: 20px; border-radius: 4px; cursor: pointer; font-size: 16px; }
-        button:hover { background-color: #218838; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; margin: 0; padding: 20px; }
+        .catalog-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1200px; margin: auto; }
+        
+        /* Product Card Styling */
+        .product-card { background: white; border-radius: 10px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; transition: transform 0.2s; }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-image { width: 100%; height: 200px; background-color: #eee; border-radius: 8px; object-fit: cover; margin-bottom: 15px; }
+        
+        .product-title { font-size: 1.2rem; color: #333; margin: 10px 0; }
+        .product-price { font-size: 1.1rem; color: #28a745; font-weight: bold; margin-bottom: 15px; }
+        
+        .buy-btn { display: inline-block; background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .buy-btn:hover { background-color: #0056b3; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>Complete Your Order</h2>
-    <form id="checkoutForm">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="email@example.com" required>
+<h1 style="text-align: center; color: #333;">Our Products</h1>
 
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" placeholder="+1 234 567 890" required>
+<div class="catalog-container">
+    <div class="product-card">
+        <img src="https://via.placeholder.com/250x200" alt="Product 1" class="product-image">
+        <div class="product-title">Smart Watch Pro</div>
+        <div class="product-price">$199.00</div>
+        <a href="checkout.html" class="buy-btn">Buy Now</a>
+    </div>
 
-        <hr style="margin-top: 20px; border: 0; border-top: 1px solid #eee;">
+    <div class="product-card">
+        <img src="https://via.placeholder.com/250x200" alt="Product 2" class="product-image">
+        <div class="product-title">Wireless Headphones</div>
+        <div class="product-price">$89.00</div>
+        <a href="checkout.html" class="buy-btn">Buy Now</a>
+    </div>
 
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" placeholder="John Doe" required>
+    <div class="product-card">
+        <img src="https://via.placeholder.com/250x200" alt="Product 3" class="product-image">
+        <div class="product-title">Premium Camera</div>
+        <div class="product-price">$549.00</div>
+        <a href="checkout.html" class="buy-btn">Buy Now</a>
+    </div>
 
-        <label for="address">Shipping Address</label>
-        <textarea id="address" name="address" rows="3" placeholder="Street address, City, State, Zip" required></textarea>
-
-        <button type="submit">Place Order</button>
-    </form>
+    <div class="product-card">
+        <img src="https://via.placeholder.com/250x200" alt="Product 4" class="product-image">
+        <div class="product-title">Leather Laptop Bag</div>
+        <div class="product-price">$120.00</div>
+        <a href="checkout.html" class="buy-btn">Buy Now</a>
+    </div>
 </div>
-
-<script>
-    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Collect the data
-        const formData = {
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            name: document.getElementById('name').value,
-            address: document.getElementById('address').value
-        };
-
-        console.log("Form Submitted Successfully:", formData);
-        alert("Thank you, " + formData.name + "! Your order has been placed.");
-    });
-</script>
 
 </body>
 </html>
