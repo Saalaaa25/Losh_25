@@ -1,6 +1,6 @@
-.head  {
-    color :#0A1B45;
+h1  {
+    color : red;
     font-family: Arial, sans-serif;
-    font-size : 32px;
+    font-size : 64px;
     text-align : center;
 }
