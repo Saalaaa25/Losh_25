@@ -1,7 +1,46 @@
-<!Doctype HTML>
-<HTML>
-<meta charset ="UTF8">
- 
-<H1>Karma</H1> 
-  <link rel="stylesheet" href="style.css">	
-</HTML>
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Add New Product</h2>
+    <form id="productForm">
+        <input type="text" id="name" placeholder="Product Name" required><br><br>
+        <textarea id="desc" placeholder="Product Description"></textarea><br><br>
+        <input type="file" id="imageFile" accept="image/*" required><br><br>
+        <button type="submit">Upload to Inventory</button>
+    </form>
+
+    <hr>
+    <h2>Live Inventory</h2>
+    <div id="displayArea" style="display: flex; gap: 20px; flex-wrap: wrap;"></div>
+
+    <script>
+        const form = document.getElementById('productForm');
+        
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            const formData = new FormData();
+            formData.append('name', document.getElementById('name').value);
+            formData.append('description', document.getElementById('desc').value);
+            formData.append('productImage', document.getElementById('imageFile').files[0]);
+
+            // Send data to Backend
+            await fetch('/api/upload', { method: 'POST', body: formData });
+            loadInventory(); // Refresh the list
+        };
+
+        async function loadInventory() {
+            const res = await fetch('/api/inventory');
+            const data = await res.json();
+            const area = document.getElementById('displayArea');
+            area.innerHTML = data.map(p => `
+                <div style="border:1px solid #ccc; padding:10px; width:200px;">
+                    <img src="${p.imageUrl}" style="width:100%">
+                    <h3>${p.name}</h3>
+                    <p>${p.description}</p>
+                </div>
+            `).join('');
+        }
+        loadInventory();
+    </script>
+</body>
+</html>
