@@ -1,6 +1,8 @@
 h1{
-  color:yellow;
   border:5px green solid;
+  color:yellow;
+  text-align:right
+  
   text-align:center;
  }
 h4
